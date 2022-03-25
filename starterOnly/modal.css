@@ -476,6 +476,24 @@ footer {
   padding-right: 2vw;
   margin: 0 20px;
 }
+
+/** Modale de remerciement **/
+#thank {
+  display: none;
+}
+#thank > .content > .modal-body {
+  display: flex;
+  flex-direction: column;
+  height: 600px;
+}
+.text-thank {
+  color: #ffffff;
+  font-weight: 400;
+  margin: auto;
+  padding: 0 5%;
+  text-align: center;
+}
+
 @media screen and (max-width: 800px) {
   .hero-section {
     display: block;
