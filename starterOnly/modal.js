@@ -37,7 +37,11 @@ function closeModal() {
   modalbg.style.display = "none";
 }
 
-// Fermer le message de remerciements
+// Event Listener : Fermer le message de validation
+closeBtn.forEach((btnClose) => btnClose.addEventListener("click", closeThankModal));
+closeBtnThank2.addEventListener("click", closeThankModal);
+
+// Fermer le message de validation
 function closeThankModal() {
   modalThank.style.display = "none";
 }
