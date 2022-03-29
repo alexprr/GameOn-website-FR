@@ -68,6 +68,10 @@ img {
   display: none;
 }
 
+.icon > i {
+  color: red;
+}
+
 @media screen and (max-width: 768px) {
   .topnav a {display: none;}
   .topnav a.icon {
@@ -93,13 +97,24 @@ img {
 
 
  @media screen and (max-width: 540px) {
+  .topnav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
   .topnav a {display: none;}
   .topnav a.icon {
     float: right;
     display: block;
-    margin-top: -15px;
+    /* margin-top: -15px; */
   }
 } 
+
+@media screen and (max-width: 426px) {
+  .header-logo img {
+    width: 50%;
+  }
+}
 
 main {
   font-size: 130%;
@@ -493,6 +508,7 @@ footer {
   text-align: center;
 }
 
+
 @media screen and (max-width: 800px) {
   .hero-section {
     display: block;
@@ -529,6 +545,22 @@ footer {
   .copyrights {
     margin-top: 50px;
     text-align: center;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .hero-headline {
+    font-size: 2.3rem;
+    font-weight: bold;
+    white-space: normal;
+  }
+  .hero-content {
+    min-width: 0;
+    padding: 0.2rem;
+  }
+  .hero-text {
+    margin-top: 1rem;
+    font-size: 0.8rem;
   }
 }
 
