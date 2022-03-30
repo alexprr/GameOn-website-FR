@@ -68,11 +68,7 @@ img {
   display: none;
 }
 
-.icon > i {
-  color: red;
-}
-
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 1150px) {
   .topnav a {display: none;}
   .topnav a.icon {
     float: right;
@@ -508,6 +504,11 @@ footer {
   text-align: center;
 }
 
+@media screen and (max-width: 980px) {
+  .hero-headline {
+    font-size: 5rem;
+  }
+}
 
 @media screen and (max-width: 800px) {
   .hero-section {
