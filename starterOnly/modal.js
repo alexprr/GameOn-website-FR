@@ -17,10 +17,6 @@ const closeBtnThank2 = document.getElementById('btn-close');
 const formData = document.querySelectorAll(".formData");
 const form = document.getElementById("form");
 
-
-// Tableau des erreurs d'input
-// let inputError = [false, false, false, true, true, true];
-
 // Event Listener : Ouvrir le formulaire d'inscription
 modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));
 
@@ -48,15 +44,18 @@ function closeThankModal() {
 
 // Fonctions : Check les inputs
 
+// RegEx pour nom et prénom 
+const validName = /^[A-z\u00C0-\u00FF-]+$/;
+
 // Check de l'input prénom
 function checkFirstName() {
   let firstnameValue = document.getElementById('firstname').value.trim();
   let firstError = document.getElementById('first-error');
-  if (firstnameValue.length === 0) {
-    firstError.setAttribute('data-error', 'Le champ ne doit pas être vide.');
+  if (firstnameValue.length < 2) {
     firstError.setAttribute('data-error-visible', 'true');
     return false;
-  } else if (firstnameValue.length < 2) {
+  } else if (!validName.test(firstnameValue)) {
+    firstError.setAttribute('data-error', 'Veuillez saisir un prénom valide');
     firstError.setAttribute('data-error-visible', 'true');
     return false;
   } else {
@@ -77,11 +76,11 @@ document
 function checkLastName() {
   let lastnameValue = document.getElementById('lastname').value.trim();
   let lastError = document.getElementById('last-error');
-  if (lastnameValue.length === 0) {
-    lastError.setAttribute('data-error', 'Le champ ne doit pas être vide.');
+  if (lastnameValue.length < 2) {
     lastError.setAttribute('data-error-visible', 'true');
     return false;
-  } else if (lastnameValue.length < 2) {
+  } else if (!validName.test(lastnameValue)) {
+    lastError.setAttribute('data-error', 'Veuillez saisir un nom valide');
     lastError.setAttribute('data-error-visible', 'true');
     return false;
   } else {
@@ -101,6 +100,7 @@ document
 function checkValidEmail() {
   let emailValue = document.getElementById('email').value.trim();
   let emailError = document.getElementById('email-error');
+  // RegEx 
   const validEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   if (emailValue.length === 0) {
     emailError.setAttribute('data-error', 'Le champ ne doit pas être vide.');
@@ -130,7 +130,6 @@ function checkValidDate() {
     birthdateError.setAttribute('data-error-visible', 'false');
     return true;
   } else {
-    // birthdateError.setAttribute('data-error', 'Veillez saisir votre date de naissance');
     birthdateError.setAttribute('data-error-visible', 'true');
     return false;
   }
@@ -147,9 +146,14 @@ document
 function checkQuantity() {
   let quantityValue = document.getElementById('quantity').value;
   let quantityError = document.getElementById('quantity-error');
+  const validQuantity = /^[0-9]*$/;
   if (quantityValue === '') {
     quantityError.setAttribute('data-error-visible', 'true');
     return false;
+  } else if (!validQuantity.test(quantityValue)) {
+    quantityError.setAttribute('data-error', 'Veuillez saisir un nombre valide');
+    quantityError.setAttribute('data-error-visible', 'true');
+    return false
   } else {
     quantityError.setAttribute('data-error-visible', 'false');
     return true;
@@ -225,7 +229,7 @@ function validateForm() {
   });
 };
 
-// Appel de la fonction
+// Appel de la fonction de validation
 validateForm();
 
 
